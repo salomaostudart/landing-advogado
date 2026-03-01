@@ -522,9 +522,9 @@
         </div>
         <form class="contact-form" aria-label="Formulário de contato" onsubmit="event.preventDefault(); alert('Mensagem enviada! Retornaremos em até 24 horas.');">
             <input type="text" placeholder="Nome completo" aria-label="Nome completo" required>
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Telefone">
-            <select required>
+            <input type="email" placeholder="Email" aria-label="Email" required>
+            <input type="tel" placeholder="Telefone" aria-label="Telefone">
+            <select aria-label="Área de interesse" required>
                 <option value="">Área de interesse</option>
                 <option>Direito Civil</option>
                 <option>Direito Trabalhista</option>
@@ -534,7 +534,7 @@
                 <option>Direito Tributário</option>
                 <option>Outro</option>
             </select>
-            <textarea placeholder="Descreva brevemente seu caso..." required></textarea>
+            <textarea placeholder="Descreva brevemente seu caso..." aria-label="Descrição do caso" required></textarea>
             <button type="submit" class="btn btn-gold">Enviar Mensagem</button>
         </form>
     </div>
