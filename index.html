@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silva & Associados | Advocacia</title>
+    <meta name="description" content="Silva & Associados - Advocacia especializada em Direito Civil, Trabalhista, Empresarial e mais. Consulta gratuita.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -52,6 +54,27 @@
             font-weight: 600;
             font-size: 0.85rem;
         }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* HERO */
         .hero {
@@ -278,7 +301,20 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .hero-content { margin-left: 0; }
-            .nav-links, .nav-cta { display: none; }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(30,58,95,0.98);
+                padding: 1.5rem 2rem;
+                gap: 1.2rem;
+            }
+            .nav-links.open { display: flex; }
+            .nav-cta { display: none; }
             .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
             .trust-bar { gap: 2rem; }
         }
@@ -293,20 +329,23 @@
 
 <nav>
     <div class="logo">Silva <span>&</span> Associados</div>
-    <ul class="nav-links">
-        <li><a href="#areas">Areas de Atuacao</a></li>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#areas">Áreas de Atuação</a></li>
         <li><a href="#equipe">Equipe</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#contato">Contato</a></li>
     </ul>
     <a href="#contato" class="nav-cta">Consulta Gratuita</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge">Excelencia Juridica desde 2010</div>
-        <h1><strong>Protegemos</strong> seus direitos com dedicacao e experiencia</h1>
-        <p>Assessoria juridica especializada para pessoas fisicas e empresas. Sua causa merece os melhores profissionais.</p>
+        <div class="hero-badge">Excelência Jurídica desde 2010</div>
+        <h1><strong>Protegemos</strong> seus direitos com dedicação e experiência</h1>
+        <p>Assessoria jurídica especializada para pessoas físicas e empresas. Sua causa merece os melhores profissionais.</p>
         <div class="hero-btns">
             <a href="#contato" class="btn btn-gold">Agendar Consulta Gratuita</a>
             <a href="#areas" class="btn btn-outline-w">Nossas Areas</a>
@@ -325,50 +364,50 @@
     </div>
     <div class="trust-item">
         <div class="trust-num">15</div>
-        <div class="trust-label">Anos de Experiencia</div>
+        <div class="trust-label">Anos de Experiência</div>
     </div>
     <div class="trust-item">
         <div class="trust-num">4.9</div>
-        <div class="trust-label">Avaliacao Google</div>
+        <div class="trust-label">Avaliação Google</div>
     </div>
 </div>
 
 <section id="areas">
     <div class="section-title">
-        <h2>Areas de <strong>Atuacao</strong></h2>
-        <p>Expertise em diversas areas do Direito</p>
+        <h2>Áreas de <strong>Atuação</strong></h2>
+        <p>Expertise em diversas áreas do Direito</p>
         <div class="section-line"></div>
     </div>
     <div class="areas-grid">
         <div class="area-card">
             <div class="area-icon">&#9878;</div>
             <h3>Direito Civil</h3>
-            <p>Contratos, responsabilidade civil, direito do consumidor e questoes patrimoniais.</p>
+            <p>Contratos, responsabilidade civil, direito do consumidor e questões patrimoniais.</p>
         </div>
         <div class="area-card">
             <div class="area-icon">&#128188;</div>
             <h3>Direito Trabalhista</h3>
-            <p>Reclamatoria trabalhista, acordos, rescisoes e direitos do trabalhador.</p>
+            <p>Reclamatória trabalhista, acordos, rescisões e direitos do trabalhador.</p>
         </div>
         <div class="area-card">
             <div class="area-icon">&#127970;</div>
             <h3>Direito Empresarial</h3>
-            <p>Constituicao de empresas, contratos societarios e consultoria corporativa.</p>
+            <p>Constituição de empresas, contratos societários e consultoria corporativa.</p>
         </div>
         <div class="area-card">
             <div class="area-icon">&#127968;</div>
-            <h3>Direito Imobiliario</h3>
-            <p>Compra e venda, usucapiao, contratos de locacao e regularizacao.</p>
+            <h3>Direito Imobiliário</h3>
+            <p>Compra e venda, usucapião, contratos de locação e regularização.</p>
         </div>
         <div class="area-card">
             <div class="area-icon">&#128106;</div>
-            <h3>Direito de Familia</h3>
-            <p>Divorcio, guarda, pensao alimenticia e inventario.</p>
+            <h3>Direito de Família</h3>
+            <p>Divórcio, guarda, pensão alimentícia e inventário.</p>
         </div>
         <div class="area-card">
             <div class="area-icon">&#128179;</div>
-            <h3>Direito Tributario</h3>
-            <p>Planejamento tributario, defesas fiscais e recuperacao de creditos.</p>
+            <h3>Direito Tributário</h3>
+            <p>Planejamento tributário, defesas fiscais e recuperação de créditos.</p>
         </div>
     </div>
 </section>
@@ -383,20 +422,20 @@
         <div class="team-card">
             <div class="team-photo">&#128104;&#8205;&#9878;</div>
             <h3>Dr. Ricardo Silva</h3>
-            <div class="role">Socio Fundador | OAB/SP 123.456</div>
-            <p>Especialista em Direito Civil e Empresarial com 20 anos de experiencia.</p>
+            <div class="role">Sócio Fundador | OAB/SP 123.456</div>
+            <p>Especialista em Direito Civil e Empresarial com 20 anos de experiência.</p>
         </div>
         <div class="team-card">
             <div class="team-photo">&#128105;&#8205;&#9878;</div>
             <h3>Dra. Mariana Costa</h3>
-            <div class="role">Socia | OAB/SP 234.567</div>
-            <p>Especialista em Direito Trabalhista e Direito de Familia.</p>
+            <div class="role">Sócia | OAB/SP 234.567</div>
+            <p>Especialista em Direito Trabalhista e Direito de Família.</p>
         </div>
         <div class="team-card">
             <div class="team-photo">&#128104;&#8205;&#9878;</div>
             <h3>Dr. Lucas Ferreira</h3>
             <div class="role">Associado | OAB/SP 345.678</div>
-            <p>Atuacao em Direito Imobiliario e Direito Tributario.</p>
+            <p>Atuação em Direito Imobiliário e Direito Tributário.</p>
         </div>
     </div>
 </section>
@@ -410,19 +449,19 @@
     <div class="testimonials-grid">
         <div class="testimonial">
             <div class="testimonial-quote">"</div>
-            <p>Profissionais extremamente competentes. Resolveram meu caso trabalhista em tempo recorde com o melhor resultado possivel.</p>
+            <p>Profissionais extremamente competentes. Resolveram meu caso trabalhista em tempo recorde com o melhor resultado possível.</p>
             <div class="testimonial-author">Carlos M.</div>
             <div class="testimonial-role">Acao Trabalhista</div>
         </div>
         <div class="testimonial">
             <div class="testimonial-quote">"</div>
-            <p>Atendimento humanizado e transparente. Me senti acolhida durante todo o processo de divorcio. Recomendo fortemente.</p>
+            <p>Atendimento humanizado e transparente. Me senti acolhida durante todo o processo de divórcio. Recomendo fortemente.</p>
             <div class="testimonial-author">Patricia R.</div>
             <div class="testimonial-role">Direito de Familia</div>
         </div>
         <div class="testimonial">
             <div class="testimonial-quote">"</div>
-            <p>A assessoria juridica da Silva & Associados foi fundamental para a expansao da nossa empresa. Parceiros de confianca.</p>
+            <p>A assessoria jurídica da Silva & Associados foi fundamental para a expansão da nossa empresa. Parceiros de confiança.</p>
             <div class="testimonial-author">Roberto A.</div>
             <div class="testimonial-role">Direito Empresarial</div>
         </div>
@@ -437,8 +476,8 @@
             <div class="contact-detail">
                 <div class="contact-detail-icon">&#128205;</div>
                 <div class="contact-detail-text">
-                    <span>Endereco</span>
-                    <strong>Av. Paulista, 1000 - Sala 1501, Sao Paulo - SP</strong>
+                    <span>Endereço</span>
+                    <strong>Av. Paulista, 1000 - Sala 1501, São Paulo - SP</strong>
                 </div>
             </div>
             <div class="contact-detail">
@@ -458,8 +497,8 @@
             <div class="contact-detail">
                 <div class="contact-detail-icon">&#128337;</div>
                 <div class="contact-detail-text">
-                    <span>Horario</span>
-                    <strong>Seg a Sex: 8h as 18h</strong>
+                    <span>Horário</span>
+                    <strong>Seg a Sex: 8h às 18h</strong>
                 </div>
             </div>
         </div>
@@ -472,9 +511,9 @@
                 <option>Direito Civil</option>
                 <option>Direito Trabalhista</option>
                 <option>Direito Empresarial</option>
-                <option>Direito Imobiliario</option>
-                <option>Direito de Familia</option>
-                <option>Direito Tributario</option>
+                <option>Direito Imobiliário</option>
+                <option>Direito de Família</option>
+                <option>Direito Tributário</option>
                 <option>Outro</option>
             </select>
             <textarea placeholder="Descreva brevemente seu caso..." required></textarea>
@@ -489,6 +528,21 @@
 </footer>
 
 <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+        });
+    });
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             e.preventDefault();
