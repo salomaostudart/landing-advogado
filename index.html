@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silva & Associados | Advocacia</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1E3A5F;
+            --primary-light: #2E5A8F;
+            --gold: #C9A84C;
+            --gold-light: #D4B96A;
+            --dark: #0D1117;
+            --dark-2: #151B23;
+            --gray: #8B949E;
+            --white: #F0F6FC;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(30,58,95,0.97);
+            backdrop-filter: blur(12px);
+        }
+        .logo { color: white; font-size: 1.3rem; font-weight: 700; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            padding: 0.55rem 1.4rem;
+            background: var(--gold);
+            color: var(--dark);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #0D1B2A 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        .hero-content { max-width: 600px; margin-left: 8%; position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 strong { font-weight: 700; }
+        .hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 480px; }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+        }
+        .btn-gold { background: var(--gold); color: var(--dark); }
+        .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+        .btn-outline-w { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.25); }
+        .btn-outline-w:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* TRUST BAR */
+        .trust-bar {
+            background: var(--dark);
+            color: white;
+            padding: 2.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+        .trust-item { text-align: center; }
+        .trust-num { font-size: 2rem; font-weight: 700; color: var(--gold); }
+        .trust-label { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* SECTIONS */
+        section { padding: 5rem 2rem; }
+        .section-title { text-align: center; margin-bottom: 3.5rem; }
+        .section-title h2 { font-size: 2rem; font-weight: 300; color: var(--primary); }
+        .section-title h2 strong { font-weight: 700; }
+        .section-title p { color: var(--gray); margin-top: 0.5rem; }
+        .section-line {
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto 0;
+        }
+
+        /* AREAS */
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .area-card {
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s;
+            background: white;
+        }
+        .area-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(30,58,95,0.08);
+            transform: translateY(-4px);
+        }
+        .area-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+        .area-card h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .area-card p { font-size: 0.9rem; color: var(--gray); }
+
+        /* TEAM */
+        .team-section { background: #F8FAFC; }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .team-card { text-align: center; }
+        .team-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            margin: 0 auto 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            border: 3px solid var(--gold);
+        }
+        .team-card h3 { font-size: 1.1rem; color: var(--primary); }
+        .team-card .role { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .team-card p { font-size: 0.85rem; color: var(--gray); max-width: 250px; margin: 0 auto; }
+
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            padding: 2rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid #E5E7EB;
+            position: relative;
+        }
+        .testimonial-quote { font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
+        .testimonial p { font-style: italic; color: #555; font-size: 0.95rem; margin-bottom: 1rem; }
+        .testimonial-author { font-weight: 600; color: var(--primary); font-size: 0.9rem; }
+        .testimonial-role { color: var(--gray); font-size: 0.8rem; }
+
+        /* CONTACT */
+        .contact-section { background: var(--primary); color: white; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start;
+        }
+        .contact-info h2 { font-size: 2rem; font-weight: 300; margin-bottom: 1rem; }
+        .contact-info h2 strong { font-weight: 700; color: var(--gold); }
+        .contact-info p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+        .contact-detail { display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: center; }
+        .contact-detail-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(201,168,76,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .contact-detail-text span { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+        .contact-detail-text strong { font-weight: 500; font-size: 0.95rem; }
+
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+        .contact-form input, .contact-form textarea, .contact-form select {
+            padding: 0.85rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.07);
+            color: white;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .contact-form textarea { resize: vertical; min-height: 100px; }
+        .contact-form select option { background: var(--primary); color: white; }
+        .contact-form .btn { width: 100%; text-align: center; }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: var(--gray);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero-content { margin-left: 0; }
+            .nav-links, .nav-cta { display: none; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .trust-bar { gap: 2rem; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Silva <span>&</span> Associados</div>
+    <ul class="nav-links">
+        <li><a href="#areas">Areas de Atuacao</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="#contato" class="nav-cta">Consulta Gratuita</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Excelencia Juridica desde 2010</div>
+        <h1><strong>Protegemos</strong> seus direitos com dedicacao e experiencia</h1>
+        <p>Assessoria juridica especializada para pessoas fisicas e empresas. Sua causa merece os melhores profissionais.</p>
+        <div class="hero-btns">
+            <a href="#contato" class="btn btn-gold">Agendar Consulta Gratuita</a>
+            <a href="#areas" class="btn btn-outline-w">Nossas Areas</a>
+        </div>
+    </div>
+</section>
+
+<div class="trust-bar">
+    <div class="trust-item">
+        <div class="trust-num">500+</div>
+        <div class="trust-label">Casos Resolvidos</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-num">95%</div>
+        <div class="trust-label">Taxa de Sucesso</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-num">15</div>
+        <div class="trust-label">Anos de Experiencia</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-num">4.9</div>
+        <div class="trust-label">Avaliacao Google</div>
+    </div>
+</div>
+
+<section id="areas">
+    <div class="section-title">
+        <h2>Areas de <strong>Atuacao</strong></h2>
+        <p>Expertise em diversas areas do Direito</p>
+        <div class="section-line"></div>
+    </div>
+    <div class="areas-grid">
+        <div class="area-card">
+            <div class="area-icon">&#9878;</div>
+            <h3>Direito Civil</h3>
+            <p>Contratos, responsabilidade civil, direito do consumidor e questoes patrimoniais.</p>
+        </div>
+        <div class="area-card">
+            <div class="area-icon">&#128188;</div>
+            <h3>Direito Trabalhista</h3>
+            <p>Reclamatoria trabalhista, acordos, rescisoes e direitos do trabalhador.</p>
+        </div>
+        <div class="area-card">
+            <div class="area-icon">&#127970;</div>
+            <h3>Direito Empresarial</h3>
+            <p>Constituicao de empresas, contratos societarios e consultoria corporativa.</p>
+        </div>
+        <div class="area-card">
+            <div class="area-icon">&#127968;</div>
+            <h3>Direito Imobiliario</h3>
+            <p>Compra e venda, usucapiao, contratos de locacao e regularizacao.</p>
+        </div>
+        <div class="area-card">
+            <div class="area-icon">&#128106;</div>
+            <h3>Direito de Familia</h3>
+            <p>Divorcio, guarda, pensao alimenticia e inventario.</p>
+        </div>
+        <div class="area-card">
+            <div class="area-icon">&#128179;</div>
+            <h3>Direito Tributario</h3>
+            <p>Planejamento tributario, defesas fiscais e recuperacao de creditos.</p>
+        </div>
+    </div>
+</section>
+
+<section id="equipe" class="team-section">
+    <div class="section-title">
+        <h2>Nossa <strong>Equipe</strong></h2>
+        <p>Profissionais dedicados ao seu caso</p>
+        <div class="section-line"></div>
+    </div>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-photo">&#128104;&#8205;&#9878;</div>
+            <h3>Dr. Ricardo Silva</h3>
+            <div class="role">Socio Fundador | OAB/SP 123.456</div>
+            <p>Especialista em Direito Civil e Empresarial com 20 anos de experiencia.</p>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">&#128105;&#8205;&#9878;</div>
+            <h3>Dra. Mariana Costa</h3>
+            <div class="role">Socia | OAB/SP 234.567</div>
+            <p>Especialista em Direito Trabalhista e Direito de Familia.</p>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">&#128104;&#8205;&#9878;</div>
+            <h3>Dr. Lucas Ferreira</h3>
+            <div class="role">Associado | OAB/SP 345.678</div>
+            <p>Atuacao em Direito Imobiliario e Direito Tributario.</p>
+        </div>
+    </div>
+</section>
+
+<section id="depoimentos">
+    <div class="section-title">
+        <h2>O que nossos <strong>clientes</strong> dizem</h2>
+        <p>Resultados que falam por si</p>
+        <div class="section-line"></div>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial">
+            <div class="testimonial-quote">"</div>
+            <p>Profissionais extremamente competentes. Resolveram meu caso trabalhista em tempo recorde com o melhor resultado possivel.</p>
+            <div class="testimonial-author">Carlos M.</div>
+            <div class="testimonial-role">Acao Trabalhista</div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-quote">"</div>
+            <p>Atendimento humanizado e transparente. Me senti acolhida durante todo o processo de divorcio. Recomendo fortemente.</p>
+            <div class="testimonial-author">Patricia R.</div>
+            <div class="testimonial-role">Direito de Familia</div>
+        </div>
+        <div class="testimonial">
+            <div class="testimonial-quote">"</div>
+            <p>A assessoria juridica da Silva & Associados foi fundamental para a expansao da nossa empresa. Parceiros de confianca.</p>
+            <div class="testimonial-author">Roberto A.</div>
+            <div class="testimonial-role">Direito Empresarial</div>
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="contact-section">
+    <div class="contact-grid">
+        <div class="contact-info">
+            <h2>Fale com um <strong>especialista</strong></h2>
+            <p>Agende uma consulta gratuita e saiba como podemos ajudar no seu caso.</p>
+            <div class="contact-detail">
+                <div class="contact-detail-icon">&#128205;</div>
+                <div class="contact-detail-text">
+                    <span>Endereco</span>
+                    <strong>Av. Paulista, 1000 - Sala 1501, Sao Paulo - SP</strong>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-detail-icon">&#128222;</div>
+                <div class="contact-detail-text">
+                    <span>Telefone</span>
+                    <strong>(11) 3000-0000</strong>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-detail-icon">&#128231;</div>
+                <div class="contact-detail-text">
+                    <span>Email</span>
+                    <strong>contato@silvaassociados.com.br</strong>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <div class="contact-detail-icon">&#128337;</div>
+                <div class="contact-detail-text">
+                    <span>Horario</span>
+                    <strong>Seg a Sex: 8h as 18h</strong>
+                </div>
+            </div>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada! Retornaremos em ate 24 horas.');">
+            <input type="text" placeholder="Nome completo" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Telefone">
+            <select required>
+                <option value="">Area de interesse</option>
+                <option>Direito Civil</option>
+                <option>Direito Trabalhista</option>
+                <option>Direito Empresarial</option>
+                <option>Direito Imobiliario</option>
+                <option>Direito de Familia</option>
+                <option>Direito Tributario</option>
+                <option>Outro</option>
+            </select>
+            <textarea placeholder="Descreva brevemente seu caso..." required></textarea>
+            <button type="submit" class="btn btn-gold">Enviar Mensagem</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Silva & Associados Advocacia | OAB/SP 12.345</p>
+    <p>Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.style.animation = 'fadeUp 0.6s ease forwards';
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.area-card, .team-card, .testimonial, .trust-item').forEach(el => {
+        el.style.opacity = '0';
+        obs.observe(el);
+    });
+</script>
+
+</body>
+</html>
