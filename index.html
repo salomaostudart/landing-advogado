@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silva & Associados | Advocacia</title>
     <meta name="description" content="Silva & Associados - Advocacia especializada em Direito Civil, Trabalhista, Empresarial e mais. Consulta gratuita.">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta property="og:title" content="Silva & Associados | Advocacia">
+    <meta property="og:description" content="Advocacia especializada em Direito Civil, Trabalhista, Empresarial e mais. Consulta gratuita.">
+    <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -323,11 +327,25 @@
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            z-index: 200;
+            font-size: 0.9rem;
+        }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body>
 
-<nav>
+<a href="#areas" class="skip-link">Pular para o conteúdo</a>
+
+<nav role="navigation" aria-label="Menu principal">
     <div class="logo">Silva <span>&</span> Associados</div>
     <ul class="nav-links" id="navLinks">
         <li><a href="#areas">Áreas de Atuação</a></li>
@@ -348,7 +366,7 @@
         <p>Assessoria jurídica especializada para pessoas físicas e empresas. Sua causa merece os melhores profissionais.</p>
         <div class="hero-btns">
             <a href="#contato" class="btn btn-gold">Agendar Consulta Gratuita</a>
-            <a href="#areas" class="btn btn-outline-w">Nossas Areas</a>
+            <a href="#areas" class="btn btn-outline-w">Nossas Áreas</a>
         </div>
     </div>
 </section>
@@ -451,13 +469,13 @@
             <div class="testimonial-quote">"</div>
             <p>Profissionais extremamente competentes. Resolveram meu caso trabalhista em tempo recorde com o melhor resultado possível.</p>
             <div class="testimonial-author">Carlos M.</div>
-            <div class="testimonial-role">Acao Trabalhista</div>
+            <div class="testimonial-role">Ação Trabalhista</div>
         </div>
         <div class="testimonial">
             <div class="testimonial-quote">"</div>
             <p>Atendimento humanizado e transparente. Me senti acolhida durante todo o processo de divórcio. Recomendo fortemente.</p>
             <div class="testimonial-author">Patricia R.</div>
-            <div class="testimonial-role">Direito de Familia</div>
+            <div class="testimonial-role">Direito de Família</div>
         </div>
         <div class="testimonial">
             <div class="testimonial-quote">"</div>
@@ -502,12 +520,12 @@
                 </div>
             </div>
         </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensagem enviada! Retornaremos em ate 24 horas.');">
-            <input type="text" placeholder="Nome completo" required>
+        <form class="contact-form" aria-label="Formulário de contato" onsubmit="event.preventDefault(); alert('Mensagem enviada! Retornaremos em até 24 horas.');">
+            <input type="text" placeholder="Nome completo" aria-label="Nome completo" required>
             <input type="email" placeholder="Email" required>
             <input type="tel" placeholder="Telefone">
             <select required>
-                <option value="">Area de interesse</option>
+                <option value="">Área de interesse</option>
                 <option>Direito Civil</option>
                 <option>Direito Trabalhista</option>
                 <option>Direito Empresarial</option>
