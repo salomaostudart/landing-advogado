@@ -1,38 +1,38 @@
-# Landing Page — Escritorio de Advocacia
+# Landing Page — Escritório de Advocacia
 
-Landing page profissional e responsiva criada como projeto demonstrativo para o segmento juridico.
+Landing page profissional e responsiva criada como projeto demonstrativo para o segmento jurídico.
 
 **[Ver site ao vivo](https://salomaostudart.github.io/landing-advogado/)**
 
 ## Funcionalidades
 
 - Design corporativo em azul e dourado
-- Secao de areas de atuacao com cards interativos
+- Seção de áreas de atuação com cards interativos
 - Perfis da equipe com fotos profissionais
 - Depoimentos de clientes
-- Barra de credibilidade com numeros (casos resolvidos, taxa de sucesso, etc.)
-- Formulario de contato com selecao de area de interesse
-- Menu hamburger para dispositivos moveis
-- Animacoes suaves ao rolar a pagina
+- Barra de credibilidade com números (casos resolvidos, taxa de sucesso, etc.)
+- Formulário de contato com seleção de área de interesse
+- Menu hamburger para dispositivos móveis
+- Animações suaves ao rolar a página
 - Acessibilidade (ARIA labels, skip-to-content)
 - Meta tags Open Graph para compartilhamento em redes sociais
 
 ## Tecnologias
 
-- HTML5 semantico
-- CSS3 (variaveis CSS, grid, flexbox, media queries)
-- JavaScript vanilla (sem dependencias externas)
+- HTML5 semântico
+- CSS3 (variáveis CSS, grid, flexbox, media queries)
+- JavaScript vanilla (sem dependências externas)
 - Imagens otimizadas via Unsplash CDN
 
 ## Performance
 
-- Zero dependencias externas (sem frameworks, sem bibliotecas)
+- Zero dependências externas (sem frameworks, sem bibliotecas)
 - CSS e JS inline (single file, sem requests adicionais)
-- Imagens otimizadas com parametros de compressao
-- Carregamento rapido em qualquer dispositivo
+- Imagens otimizadas com parâmetros de compressão
+- Carregamento rápido em qualquer dispositivo
 
 ## Autor
 
-Desenvolvido por **Salomao Studart** — [Portfolio](https://salomaostudart.github.io/portfolio/) | [LinkedIn](https://linkedin.com/in/salomaostudart)
+Desenvolvido por **Salomão Studart** — [Portfólio](https://salomaostudart.github.io/portfolio/) | [LinkedIn](https://www.linkedin.com/in/salomao-studart)
 
-> Este e um projeto demonstrativo. Os dados de contato, enderecos, nomes e numeros de OAB exibidos no site sao ficticios.
+> Este é um projeto demonstrativo. Os dados de contato, endereços, nomes e números de OAB exibidos no site são fictícios.
