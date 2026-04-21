@@ -11,9 +11,14 @@
     <meta property="og:description" content="Advocacia especializada em Direito Civil, Trabalhista, Empresarial e mais. Consulta gratuita.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://salomaostudart.github.io/landing-advogado/">
-    <meta property="og:image" content="/og-cover.png">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=630&fit=crop&auto=format&q=80">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Silva & Associados — Advocacia">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Silva & Associados | Advocacia">
+    <meta name="twitter:description" content="Advocacia especializada. Consulta gratuita.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=630&fit=crop&auto=format&q=80">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23C9A84C'/><stop offset='100%25' stop-color='%23E8D48B'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%230a1628'/><text x='50' y='68' font-family='Georgia,serif' font-size='55' font-weight='700' fill='url(%23g)' text-anchor='middle'>SA</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -371,6 +376,16 @@
             font-size: 0.9rem;
         }
         .skip-link:focus { top: 0; }
+        /* WCAG 2.2: visually-hidden — acessivel para screen readers, oculto visualmente */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
         .demo-banner {
             background: var(--gold);
             color: var(--dark);
@@ -570,10 +585,14 @@
             </div>
         </div>
         <form class="contact-form" aria-label="Formulário de contato" onsubmit="event.preventDefault(); alert('Mensagem enviada! Retornaremos em até 24 horas.');">
-            <input type="text" placeholder="Nome completo" aria-label="Nome completo" required>
-            <input type="email" placeholder="Email" aria-label="Email" required>
-            <input type="tel" placeholder="Telefone" aria-label="Telefone">
-            <select aria-label="Área de interesse" required>
+            <label for="contact-nome" class="visually-hidden">Nome completo</label>
+            <input id="contact-nome" type="text" placeholder="Nome completo" required>
+            <label for="contact-email" class="visually-hidden">Email</label>
+            <input id="contact-email" type="email" placeholder="Email" required>
+            <label for="contact-tel" class="visually-hidden">Telefone</label>
+            <input id="contact-tel" type="tel" placeholder="Telefone">
+            <label for="contact-area" class="visually-hidden">Área de interesse</label>
+            <select id="contact-area" required>
                 <option value="">Área de interesse</option>
                 <option>Direito Civil</option>
                 <option>Direito Trabalhista</option>
@@ -583,7 +602,8 @@
                 <option>Direito Tributário</option>
                 <option>Outro</option>
             </select>
-            <textarea placeholder="Descreva brevemente seu caso..." aria-label="Descrição do caso" required></textarea>
+            <label for="contact-msg" class="visually-hidden">Descrição do caso</label>
+            <textarea id="contact-msg" placeholder="Descreva brevemente seu caso..." required></textarea>
             <button type="submit" class="btn btn-gold">Enviar Mensagem</button>
         </form>
     </div>
